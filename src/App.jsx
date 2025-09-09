@@ -1,5 +1,11 @@
+import Banner from "./components/Banner";
+import Navbar from "./components/Navbar";
+
 export default function App() {
   return (
-    <div className="bg-black p-2 text-center text-white">Hello World!</div>
+    <div className="">
+      <Navbar />
+      <Banner />
+    </div>
   );
 }
