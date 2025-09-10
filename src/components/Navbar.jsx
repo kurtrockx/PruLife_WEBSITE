@@ -6,7 +6,9 @@ export default function Navbar() {
   return (
     <div className="flex max-h-[10dvh] justify-between bg-[#e0ebf4] px-12 py-4 shadow-lg shadow-neutral-200">
       <Logo />
-      <NavLinkContainer />
+      <div className="hidden xl:flex">
+        <NavLinkContainer />
+      </div>
       <NavButton />
     </div>
   );
