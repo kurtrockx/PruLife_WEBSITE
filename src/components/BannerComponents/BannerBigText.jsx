@@ -1,6 +1,6 @@
 export default function BannerBigText() {
   return (
-    <div className="absolute top-0 left-0 pt-[12%] pl-[4.5%] md:pt-[4%] md:pl-[8%]">
+    <div className="absolute top-0 left-0 pt-[4%] pl-[4.5%] md:pl-[8%]">
       <div className="font-times pb-4 text-[2.2rem] leading-tight tracking-tight sm:text-[3.5rem] lg:text-[4.5rem] xl:pb-10 xl:text-[5rem] 2xl:text-[6rem]">
         <h1> Insurance for the better</h1>
         <p>
