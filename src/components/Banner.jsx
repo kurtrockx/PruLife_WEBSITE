@@ -1,25 +1,21 @@
-import banner from "../assets/banner.png";
+import BannerPic from "./BannerComponents/BannerPic";
+import BannerBigText from "./BannerComponents/BannerBigText";
+import BannerButton from "./BannerComponents/BannerButton";
 
 export default function Banner() {
   return (
-    <div className="relative max-w-dvw overflow-hidden">
-      <img
-        className="relative z-1 object-cover brightness-75"
-        src={banner}
-        alt=""
-      />
-      <div className="absolute top-0 left-0 z-2 flex flex-col gap-8 p-20">
-        <h1 className="text-6xl font-medium text-white">
-          Insurance for the better <span className="text-red-600">life.</span>
-        </h1>
-        <p className="max-w-120 text-justify text-lg">
-          Insurance for a better family life gives protection and peace of mind
-          during emergencies, keeping your loved ones secure and supported.
-        </p>
-        <button className="w-fit rounded-xl bg-red-600 px-4 py-2 text-white shadow-md">
-          Let's Get Started
-        </button>
+    <section className="relative h-[95vh] w-full overflow-hidden bg-black text-white">
+      {/* Image layer */}
+      <BannerPic />
+
+      {/* Gradient overlay for better readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/80" />
+
+      {/* Text content */}
+      <div className="absolute inset-0 flex flex-col justify-center space-y-10 px-[6%] md:px-[10%]">
+        <BannerBigText />
+        <BannerButton />
       </div>
-    </div>
+    </section>
   );
 }

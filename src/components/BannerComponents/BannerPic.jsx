@@ -5,7 +5,7 @@ export default function BannerPic() {
     <img
       src={bannerPic}
       alt="banner"
-      className="block h-[100%] w-[100%] object-cover select-none"
+      className="h-full w-full object-cover brightness-[0.85] select-none"
     />
   );
 }
