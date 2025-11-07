@@ -4,6 +4,11 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+}
+
 /* in your global CSS or tailwind.css */
 @keyframes fadeInUp {
   from {
@@ -18,7 +23,6 @@
 .animate-fadeInUp {
   animation: fadeInUp 0.8s ease-out forwards;
 }
-
 
 /* ===== Scrollbar Theme ===== */
 .scrollbar-red {

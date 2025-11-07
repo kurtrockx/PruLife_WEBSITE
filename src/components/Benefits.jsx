@@ -33,7 +33,7 @@ export default function Benefits() {
   ];
 
   return (
-    <section
+    <section id="benefits"
       className="relative w-full overflow-hidden px-3 py-16 sm:px-6 md:px-12 lg:px-24"
       style={{
         background:

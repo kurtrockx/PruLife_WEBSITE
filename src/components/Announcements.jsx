@@ -59,7 +59,7 @@ export default function Announcements() {
   };
 
   return (
-    <section className="w-full bg-gradient-to-b from-gray-50 via-white to-gray-300 px-3 py-10 sm:px-6 md:px-8 lg:px-20">
+    <section id="announcements" className="w-full bg-gradient-to-b from-gray-50 via-white to-gray-300 px-3 py-10 sm:px-6 md:px-8 lg:px-20">
       {/* Header */}
       <div className="mb-12 text-center">
         <h1 className="relative mb-4 font-serif text-3xl font-semibold tracking-tight text-[#b30f1c] sm:text-4xl lg:text-5xl">

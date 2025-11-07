@@ -3,10 +3,17 @@ import prulifeLogo from "../assets/prulifeLogo.svg";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const navItems = ["Home", "About", "Insurance", "Team", "News"];
+  const navItems = [
+    "Home",
+    "Announcements",
+    "Services",
+    "Benefits",
+    "Mobile",
+    "About",
+  ];
 
   return (
-    <nav className="sticky top-0 left-0 z-50 border-b border-gray-100 bg-white/90 shadow-sm backdrop-blur-md lg:px-18 px-2 md:px-8">
+    <nav className="sticky top-0 left-0 z-50 border-b border-gray-100 bg-white/90 px-2 shadow-sm backdrop-blur-md md:px-8 lg:px-18">
       <div className="mx-auto flex items-center justify-between px-6 py-3">
         {/* Logo Section */}
         <div className="flex items-center gap-3">
@@ -23,12 +30,13 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <ul className="hidden items-center gap-6 text-sm font-medium text-gray-600 md:flex">
           {navItems.map((item) => (
-            <li
+            <a
+              href={`#${item.toLowerCase()}`}
               key={item}
-              className="cursor-pointer transition-colors duration-200 hover:scale-105 hover:text-red-600"
+              className="cursor-pointer transition-colors duration-200 hover:text-red-600"
             >
               {item}
-            </li>
+            </a>
           ))}
         </ul>
 
@@ -99,13 +107,14 @@ export default function Navbar() {
 
           <ul className="mt-6 flex flex-col items-start gap-4 px-6 text-sm font-medium text-gray-700">
             {navItems.map((item) => (
-              <li
+              <a
                 key={item}
                 className="w-full rounded py-2 text-left transition-colors hover:bg-gray-50 hover:text-red-600"
-                onClick={() => setIsOpen(false)}
+                href={`#${item.toLowerCase()}`}
+                onClick={() => setIsOpen(!isOpen)}
               >
                 {item}
-              </li>
+              </a>
             ))}
           </ul>
         </div>

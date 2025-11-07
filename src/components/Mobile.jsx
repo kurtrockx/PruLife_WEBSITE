@@ -20,7 +20,7 @@ export default function Mobile() {
   const spread = 90;
 
   return (
-    <section className="bg-white px-8 py-16">
+    <section id="mobile" className="bg-white px-8 py-16">
       <div className="mx-auto flex max-w-7xl flex-col gap-12 lg:grid lg:grid-cols-2 lg:items-center">
         {/* Text Content */}
         <div className="flex flex-col gap-6">

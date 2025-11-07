@@ -4,7 +4,7 @@ import BannerButton from "./BannerComponents/BannerButton";
 
 export default function Banner() {
   return (
-    <section className="relative h-[95vh] w-full overflow-hidden bg-black text-white">
+    <section id="home" className="relative h-[95vh] w-full overflow-hidden bg-black text-white">
       {/* Image layer */}
       <BannerPic />
 
