@@ -22,7 +22,7 @@ export default function Navbar() {
             alt="PruLife Logo"
             className="h-10 w-auto object-contain"
           />
-          <span className="hidden text-lg font-semibold tracking-wide text-gray-800 sm:block">
+          <span className="text-lg font-semibold tracking-wide text-gray-800 ">
             PruLife UK
           </span>
         </div>
