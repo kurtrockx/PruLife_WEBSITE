@@ -37,12 +37,11 @@ export default function Mobile() {
             <li>✅ Secure and reliable</li>
           </ul>
           <div className="mt-6 flex gap-4">
-            <button className="rounded-lg bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700 hover:shadow-lg">
-              Download on iOS
-            </button>
-            <button className="rounded-lg bg-gray-200 px-6 py-3 font-semibold text-gray-900 transition hover:bg-gray-300 hover:shadow-lg">
-              Download on Android
-            </button>
+            <a href="https://expo.dev/artifacts/eas/jgwSdkzVTSALp9rtJPU4gQ.apk">
+              <button className="rounded-lg bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700 hover:shadow-lg">
+                Download Now
+              </button>
+            </a>
           </div>
         </div>
 
