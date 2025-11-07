@@ -20,24 +20,24 @@ export default function AnnouncementModal({ announcement, onClose }) {
           <img
             src={announcement.images[0]}
             alt={announcement.title}
-            className="max-h-[50%] w-full flex-shrink-0 object-contain sm:h-80 lg:object-cover py-4"
+            className="max-h-[50%] w-full flex-shrink-0 object-contain py-4 sm:h-80 lg:object-cover"
           />
         )}
 
         {/* Scrollable Content */}
         <div className="flex-1 overflow-auto p-4 md:p-6">
-          <h2 className="mb-2 font-serif text-[0.75rem] font-bold text-[#b30f1c] sm:text-sm md:text-lg">
+          <h2 className="mb-2 font-serif text-[0.85rem] font-bold text-[#b30f1c] sm:text-[0.9rem] md:text-[1.1rem]">
             {announcement.title}
           </h2>
           {announcement.subtitle && (
-            <p className="mb-3 text-[0.65rem] font-medium text-gray-700 sm:text-[0.75rem] md:text-base">
+            <p className="mb-3 text-[0.75rem] font-medium text-gray-700 sm:text-[0.85rem] md:text-[1.1rem]">
               {announcement.subtitle}
             </p>
           )}
-          <p className="text-justify text-[0.6rem] leading-relaxed text-gray-600 sm:text-[0.7rem] md:text-sm">
+          <p className="text-justify text-[0.7rem] leading-relaxed text-gray-600 sm:text-[0.8rem] md:text-[0.9rem]">
             {announcement.content}
           </p>
-          <p className="mt-3 text-[0.55rem] text-gray-500 italic sm:text-[0.65rem] md:text-sm">
+          <p className="mt-3 text-[0.65rem] text-gray-500 italic sm:text-[0.75rem] md:text-[0.85rem]">
             — {announcement.author || "Admin"}
           </p>
         </div>
