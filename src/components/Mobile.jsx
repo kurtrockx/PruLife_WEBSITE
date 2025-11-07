@@ -21,7 +21,7 @@ export default function Mobile() {
 
   return (
     <section className="bg-white px-8 py-16">
-      <div className="mx-auto flex max-w-7xl flex-col gap-12 md:grid md:grid-cols-2 md:items-center">
+      <div className="mx-auto flex max-w-7xl flex-col gap-12 lg:grid lg:grid-cols-2 lg:items-center">
         {/* Text Content */}
         <div className="flex flex-col gap-6">
           <h2 className="text-4xl font-bold text-gray-900">
@@ -47,23 +47,31 @@ export default function Mobile() {
         </div>
 
         {/* Perspective Fanned Image Layout */}
-        <div className="relative flex h-[450px] items-center justify-center md:h-[550px]">
-          {images.map((img, i) => (
-            <div
-              key={i}
-              className="absolute overflow-hidden rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105"
-              style={{
-                zIndex: zIndices[i],
-                transform: `translateX(${(i - 2) * spread}px) rotate(${rotations[i]}deg) scale(${scales[i]})`,
-              }}
-            >
-              <img
-                src={img}
-                alt={`Mobile screenshot ${i + 1}`}
-                className="h-auto w-48 object-cover md:w-56"
-              />
-            </div>
-          ))}
+        <div className="relative flex h-[300px] items-center justify-center sm:h-[400px] md:h-[450px] lg:h-[550px]">
+          {images.map((img, i) => {
+            // Adjust spacing dynamically for smaller screens
+            let currentSpread = spread; // default for medium+ screens
+            if (window.innerWidth < 640)
+              currentSpread = spread * 0.5; // small screens
+            else if (window.innerWidth < 768) currentSpread = spread * 1; // sm screens
+
+            return (
+              <div
+                key={i}
+                className="absolute overflow-hidden rounded-2xl shadow-lg transition-transform duration-300 hover:scale-105"
+                style={{
+                  zIndex: zIndices[i],
+                  transform: `translateX(${(i - 2) * currentSpread}px) rotate(${rotations[i]}deg) scale(${scales[i]})`,
+                }}
+              >
+                <img
+                  src={img}
+                  alt={`Mobile screenshot ${i + 1}`}
+                  className="h-auto w-28 object-cover sm:w-36 md:w-48 lg:w-56"
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
