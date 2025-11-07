@@ -5,7 +5,7 @@ export default function AnnouncementModal({ announcement, onClose }) {
   if (!announcement) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
       <div className="relative flex h-[100dvh] w-full flex-col overflow-hidden bg-white shadow-2xl ring-1 ring-gray-200 md:h-auto md:max-h-[90vh] md:max-w-3xl md:rounded-xl">
         {/* Close Button */}
         <button
@@ -20,7 +20,7 @@ export default function AnnouncementModal({ announcement, onClose }) {
           <img
             src={announcement.images[0]}
             alt={announcement.title}
-            className="h-36 w-full flex-shrink-0 object-contain lg:object-cover sm:h-80"
+            className="max-h-[50%] w-full flex-shrink-0 object-contain sm:h-80 lg:object-cover py-4"
           />
         )}
 
