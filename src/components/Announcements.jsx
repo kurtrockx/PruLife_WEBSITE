@@ -59,14 +59,14 @@ export default function Announcements() {
   };
 
   return (
-    <section className="w-full bg-gradient-to-b from-gray-50 via-white to-gray-300 px-3 py-10 sm:px-6 md:px-12 lg:px-20">
+    <section className="w-full bg-gradient-to-b from-gray-50 via-white to-gray-300 px-3 py-10 sm:px-6 md:px-8 lg:px-20">
       {/* Header */}
       <div className="mb-12 text-center">
-        <h1 className="relative mb-4 font-serif text-4xl font-semibold tracking-tight text-[#b30f1c] sm:text-5xl">
+        <h1 className="relative mb-4 font-serif text-3xl font-semibold tracking-tight text-[#b30f1c] sm:text-4xl lg:text-5xl">
           Announcements
-          <span className="absolute bottom-[-10px] left-1/2 h-[3px] w-16 -translate-x-1/2 rounded-full bg-[#b30f1c]" />
+          <span className="absolute bottom-[-8px] left-1/2 h-[2.5px] w-12 -translate-x-1/2 rounded-full bg-[#b30f1c]" />
         </h1>
-        <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-600 sm:text-xl">
+        <p className="mx-auto mt-4 max-w-3xl text-base text-gray-600 sm:text-lg lg:text-xl">
           Protect what matters most — enjoy life confidently with benefits that
           truly have you covered.
         </p>
@@ -75,7 +75,7 @@ export default function Announcements() {
       {/* Featured Announcement */}
       <div
         onClick={() => setSelectedAnnouncement(current)}
-        className={`relative mx-auto mb-8 flex h-auto max-h-[600px] max-w-7xl cursor-pointer flex-col overflow-hidden rounded-2xl shadow-lg ring-1 ring-gray-200 transition-all duration-500 md:flex-row md:items-center ${
+        className={`relative mx-auto mb-8 flex h-auto max-w-7xl cursor-pointer flex-col overflow-hidden rounded-2xl shadow-lg ring-1 ring-gray-200 transition-all duration-500 md:flex-row md:items-center ${
           fade ? "scale-[0.98] opacity-0" : "scale-100 opacity-100"
         }`}
         style={{
@@ -98,7 +98,7 @@ export default function Announcements() {
           <img
             src={current.images?.[0]}
             alt={current.title}
-            className="h-[420px] w-full rounded-lg object-cover transition-transform duration-500 hover:scale-105"
+            className="h-[300px] w-full rounded-lg object-cover transition-transform duration-500 hover:scale-105 sm:h-[350px] md:h-[420px]"
           />
         </div>
 
@@ -108,14 +108,14 @@ export default function Announcements() {
             {current.title}
           </h2>
           {current.subtitle && (
-            <p className="mb-2 text-[13px] font-medium text-gray-300 sm:text-sm md:text-base">
+            <p className="mb-2 text-[12px] font-medium text-gray-300 sm:text-sm md:text-base">
               {current.subtitle}
             </p>
           )}
-          <p className="mb-3 line-clamp-5 text-justify text-[12px] leading-relaxed text-gray-300 sm:text-[13px] md:text-sm">
+          <p className="mb-3 line-clamp-5 text-justify text-[11px] leading-relaxed text-gray-300 sm:text-[12px] md:text-sm">
             {current.content}
           </p>
-          <p className="text-[11px] text-gray-400 italic sm:text-xs">
+          <p className="text-[10px] text-gray-400 italic sm:text-[11px]">
             — {current.author || "Admin"}
           </p>
         </div>
@@ -130,7 +130,7 @@ export default function Announcements() {
         ></span>
       </div>
 
-      {/* Carousel Section (unchanged) */}
+      {/* Carousel Section */}
       <div className="relative flex items-center justify-center">
         <button
           onClick={handlePrev}
@@ -139,13 +139,13 @@ export default function Announcements() {
           <ChevronLeft className="h-4 w-4 text-[#b30f1c]" />
         </button>
 
-        <div className="scrollbar-red flex w-full max-w-4xl gap-3 overflow-x-auto scroll-smooth px-4 py-2">
+        <div className="scrollbar-red flex w-full max-w-4xl gap-2 overflow-x-auto scroll-smooth px-2 py-2 sm:gap-3 sm:px-4">
           {announcements.map((item, idx) => (
             <div
               key={item.id}
               ref={(el) => (thumbnailRefs.current[idx] = el)}
               onClick={() => setCurrentIndex(idx)}
-              className={`relative h-24 w-40 flex-shrink-0 cursor-pointer overflow-hidden rounded-xl border-2 shadow-sm transition-all duration-300 sm:h-28 sm:w-44 md:h-30 md:w-48 ${
+              className={`relative h-20 w-32 flex-shrink-0 cursor-pointer overflow-hidden rounded-xl border-2 shadow-sm transition-all duration-300 sm:h-24 sm:w-40 md:h-28 md:w-44 ${
                 idx === currentIndex
                   ? "scale-105 border-[#b30f1c] shadow-md"
                   : "border-transparent hover:scale-105 hover:shadow-md"
@@ -157,7 +157,7 @@ export default function Announcements() {
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all hover:from-black/50"></div>
-              <div className="absolute right-2 bottom-2 left-2 text-[10px] font-semibold text-white drop-shadow sm:text-[11px]">
+              <div className="absolute right-1 bottom-1 left-1 text-[9px] font-semibold text-white drop-shadow sm:text-[10px]">
                 {item.title}
               </div>
             </div>
