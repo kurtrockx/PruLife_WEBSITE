@@ -1,23 +1,44 @@
+import { useState } from "react";
 import mobile1 from "../assets/mobile1.png";
 import mobile2 from "../assets/mobile2.png";
 import mobile3 from "../assets/mobile3.png";
 import mobile4 from "../assets/mobile4.png";
 import mobile5 from "../assets/mobile5.png";
+import qr from "../assets/qr.png";
 
 export default function Mobile() {
   const images = [mobile1, mobile3, mobile2, mobile4, mobile5];
-
-  // Rotation for slight fanning
   const rotations = [-12, -6, 0, 6, 12];
-
-  // zIndex to ensure front image is on top
   const zIndices = [1, 2, 3, 2, 1];
-
-  // Scale for perspective: back images smaller, front larger
   const scales = [0.7, 0.85, 1, 0.85, 0.7];
-
-  // Horizontal spread
   const spread = 90;
+
+  const [showQr, setShowQr] = useState(false);
+  const apkLink = "https://expo.dev/artifacts/eas/bMGvd9HmYvC3CYpgCAZGsM.apk";
+
+  const handleDownloadClick = (e) => {
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      // On mobile, go directly to link
+      window.location.href = apkLink;
+    } else {
+      // On desktop, show QR modal
+      e.preventDefault();
+      setShowQr(true);
+    }
+  };
+
+  const handleQrClick = () => {
+    // Trigger download for desktop users
+    const a = document.createElement("a");
+    a.href = apkLink;
+    a.download = "app.apk";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setShowQr(false);
+  };
 
   return (
     <section id="mobile" className="bg-white px-8 py-16">
@@ -37,22 +58,21 @@ export default function Mobile() {
             <li>✅ Secure and reliable</li>
           </ul>
           <div className="mt-6 flex gap-4">
-            <a href="https://expo.dev/artifacts/eas/bMGvd9HmYvC3CYpgCAZGsM.apk">
-              <button className="rounded-lg bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700 hover:shadow-lg">
-                Download Now
-              </button>
-            </a>
+            <button
+              onClick={handleDownloadClick}
+              className="rounded-lg bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700 hover:shadow-lg"
+            >
+              Download Now
+            </button>
           </div>
         </div>
 
         {/* Perspective Fanned Image Layout */}
         <div className="relative flex h-[300px] items-center justify-center sm:h-[400px] md:h-[450px] lg:h-[550px]">
           {images.map((img, i) => {
-            // Adjust spacing dynamically for smaller screens
-            let currentSpread = spread; // default for medium+ screens
-            if (window.innerWidth < 640)
-              currentSpread = spread * 0.5; // small screens
-            else if (window.innerWidth < 768) currentSpread = spread * 1; // sm screens
+            let currentSpread = spread;
+            if (window.innerWidth < 640) currentSpread = spread * 0.5;
+            else if (window.innerWidth < 768) currentSpread = spread * 1;
 
             return (
               <div
@@ -73,6 +93,35 @@ export default function Mobile() {
           })}
         </div>
       </div>
+
+      {/* QR Modal */}
+      {showQr && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+          onClick={() => setShowQr(false)} // close on background click
+        >
+          <div
+            className="relative rounded-lg bg-white p-12 shadow-lg "
+            onClick={(e) => e.stopPropagation()} // prevent closing when clicking modal itself
+          >
+            <h2 className="mb-4 text-center text-lg font-bold">
+              Scan or Click to Download
+            </h2>
+            <img
+              src={qr}
+              alt="QR Code"
+              className="h-60 w-60 cursor-pointer object-contain"
+              onClick={handleQrClick}
+            />
+            <button
+              onClick={() => setShowQr(false)}
+              className="absolute top-2 right-2 rounded-full bg-red-600 px-3 py-1 text-white hover:bg-red-700"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
