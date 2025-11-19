@@ -37,7 +37,7 @@ export default function Mobile() {
             <li>✅ Secure and reliable</li>
           </ul>
           <div className="mt-6 flex gap-4">
-            <a href="https://expo.dev/artifacts/eas/jgwSdkzVTSALp9rtJPU4gQ.apk">
+            <a href="https://expo.dev/artifacts/eas/bMGvd9HmYvC3CYpgCAZGsM.apk">
               <button className="rounded-lg bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700 hover:shadow-lg">
                 Download Now
               </button>

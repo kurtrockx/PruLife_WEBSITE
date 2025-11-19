@@ -47,7 +47,10 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="w-full bg-gradient-to-b from-gray-50 to-white px-3 py-10 sm:px-6 md:px-12 lg:px-20 xl:px-24">
+    <section
+      id="services"
+      className="w-full bg-gradient-to-b from-gray-50 to-white px-3 py-10 sm:px-6 md:px-12 lg:px-20 xl:px-24"
+    >
       {/* Header */}
       <div className="mb-8 text-center sm:mb-10">
         <h1 className="relative mb-3 font-serif text-3xl font-semibold tracking-tight text-[#b30f1c] sm:text-4xl md:text-5xl">
