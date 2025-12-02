@@ -4,7 +4,7 @@ import mobile2 from "../assets/mobile2.png";
 import mobile3 from "../assets/mobile3.png";
 import mobile4 from "../assets/mobile4.png";
 import mobile5 from "../assets/mobile5.png";
-import qr from "../assets/qr.png";
+import qr from "../assets/qr.svg";
 
 export default function Mobile() {
   const images = [mobile1, mobile3, mobile2, mobile4, mobile5];
